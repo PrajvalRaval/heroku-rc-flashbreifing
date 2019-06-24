@@ -6,17 +6,15 @@
   "keywords": ["node", "express", "static"],
   "addons": ["heroku-redis:hobby-dev"],
   "env": {
-    "SERVER_URL": "Enter Your Rocket Chat Server URL",
+    "SERVER_URL": {
+      "description": "Enter Your Rocket Chat Server URL"
+    },
     "CHANNEL_NAME": "Enter Your Broadcasting Channelname",
     "CACHE_TTL": "Data Update Frequency In Seconds. (Ex: 1 Hour = 3600 Seconds) ",
     "TITLE_TEXT": "The title of the feed item to display in the Alexa app.",
     "COOKIE_SECRET": {
             "description": "This gets generated",
             "generator": "secret"
-    },
-     "SETUP_BY": {
-            "description": "Who initiated this setup",
-            "value": ""
     }
   }
 }
