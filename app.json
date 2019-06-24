@@ -6,9 +6,9 @@
   "keywords": ["node", "express", "static"],
   "addons": ["heroku-redis:hobby-dev"],
   "env": {
-    "SERVER_URL": "https://bots.rocket.chat",
-    "CHANNEL_NAME": "flashbriefingchannel",
-    "CACHE_TTL": "3600",
-    "TITLE_TEXT": "RC Flash Brieifing"
+    "SERVER_URL": "Enter Your Rocket Chat Server URL",
+    "CHANNEL_NAME": "Enter Your Broadcasting Channelname",
+    "CACHE_TTL": "Data Update Frequency In Seconds. (Ex: 1 Hour = 3600 Seconds) ",
+    "TITLE_TEXT": "The title of the feed item to display in the Alexa app."
   }
 }
