@@ -3,6 +3,9 @@ const express = require("express");
 const axios = require('axios');
 const app = express();
 
+var client = require('redis').createClient(process.env.REDIS_URL);
+
+
 app.use(express.json());
 
 var result;
