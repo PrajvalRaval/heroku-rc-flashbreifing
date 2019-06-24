@@ -18,13 +18,13 @@ const flashBriefingMessage = async () => {
     .get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
     .then((res) => {
 
-      result = {
+      result = JSON.stringify( {
         uid: res.data.messages[0]._id,
         updateDate: res.data.messages[0].ts,
         titleText: "RC FLASH BRIEFING",
         mainText: res.data.messages[0].msg,
         redirectionUrl: "https://bots.rocket.chat/channel/flashbriefingchannel"
-      };
+      });
 
     })
     .catch((err) => {
@@ -36,7 +36,7 @@ const flashBriefingMessage = async () => {
 app.get('/', async (req, res) => {
   try {
     await flashBriefingMessage();
-    res.send(result);
+    return res.status(200).json(result);
   } catch {
     //this will eventually be handled by your error handling middleware
     res.send("ERROR");
