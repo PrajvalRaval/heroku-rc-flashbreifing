@@ -4,9 +4,7 @@ const app = express();
 
 app.use(express.json());
 
-const courses = [
-  { uid: 1, updateDate: "Algorithms", titleText:"TITLE", mainText:"MAIN", redirectionUrl:"RURL" }
-];
+const courses = { uid: 1, updateDate: "Algorithms", titleText:"TITLE", mainText:"MAIN", redirectionUrl:"RURL" };
 
 
 app.get("/", function(req, res) {
