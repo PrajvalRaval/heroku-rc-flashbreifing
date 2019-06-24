@@ -21,6 +21,13 @@ client.on('error', (err) => {
 
 app.use(express.json());
 
+app.get('/ping', (req, res) => {
+  
+    const pongData = ('{"data":"PONG"}');
+    var pong = JSON.parse(pongData);
+    return res.status(200).json(pong);
+
+})
 
 app.get('/', (req, res) => {
 
