@@ -31,7 +31,7 @@ app.get('/', (req, res) => {
             redirectionUrl: "https://bots.rocket.chat/channel/flashbriefingchannel"
           });
 
-          client.setex(`redisdb:message`, 30, responseJSON);
+          client.setex(`redisdb:message`, 86400, responseJSON);
           
           const result = JSON.parse(responseJSON);
           return res.status(200).json(result);
