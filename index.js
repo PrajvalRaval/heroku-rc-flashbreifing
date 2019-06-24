@@ -5,21 +5,29 @@ const app = express();
 
 app.use(express.json());
 
-var speechText;
-var date;
-var _id;
+//var speechText;
+//var date;
+//var _id;
 
 const flashBriefingMessage = async () => {
   await axios
     .get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
     .then((res) => {
+    
+    {
+      uid: res.data.messages[0]._id,
+      updateDate: res.data.messages[0].ts,
+      titleText: "RC FLASH BRIEFING",
+      mainText: res.data.messages[0].msg,
+      redirectionUrl: "COMING SOON"
+    }
 
-      speechText = res.data.messages[0].msg;
+      /*speechText = res.data.messages[0].msg;
       date = res.data.messages[0].ts;
       _id = res.data.messages[0]._id;
       console.log(res.data.messages[0].msg);
       console.log(res.data.messages[0].ts);
-      console.log(res.data.messages[0]._id);
+      console.log(res.data.messages[0]._id);*/
 
     })
     .catch((err) => {
@@ -27,18 +35,18 @@ const flashBriefingMessage = async () => {
     });
 };
 
-const courses = {
+/*const courses = {
   uid: _id,
   updateDate: date,
   titleText: "RC FLASH BRIEFING",
   mainText: speechText,
   redirectionUrl: "COMING SOON"
-};
+};*/
 
 
 app.get('/', async (req, res) => {
   try {
-    await flashBriefingMessage();
+    const courses = await flashBriefingMessage();
     res.send(courses);
   } catch {
     //this will eventually be handled by your error handling middleware
