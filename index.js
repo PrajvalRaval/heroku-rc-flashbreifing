@@ -36,18 +36,16 @@ const courses = {
 };
 
 
-app.get("/", function async (req, res) {
-
+app.get('/', async (req, res) => {
   try {
-    
     await flashBriefingMessage();
     res.send(courses);
-
   } catch {
     //this will eventually be handled by your error handling middleware
-    res.send(err.message); 
+    res.send(err.message);
   }
-});
+})
+
 
 app.listen(PORT, function () {
   console.log(`Listening on Port ${PORT}`);
