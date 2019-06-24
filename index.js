@@ -12,7 +12,7 @@ const flashBriefingMessage = async () => {
     .get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
     .then((res) => {
 
-      result = JSON.stringify({
+      result = JSON.parse({
         uid: res.data.messages[0]._id,
         updateDate: res.data.messages[0].ts,
         titleText: "RC FLASH BRIEFING",
