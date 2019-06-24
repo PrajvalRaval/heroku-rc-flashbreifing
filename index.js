@@ -32,8 +32,9 @@ app.get('/', (req, res) => {
           });
 
           client.setex(`redisdb:message`, 120, responseJSON);
-
-          return res.status(200).json(responseJSON);
+          
+          const result = JSON.parse(responseJSON);
+          return res.status(200).json(result);
         })
         .catch(err => {
           return res.json(err);
