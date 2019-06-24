@@ -30,7 +30,7 @@ const flashBriefingMessage = async () => {
 app.get('/', async (req, res) => {
   try {
     await flashBriefingMessage();
-    res.send(result);
+    res.send.json(result);
   } catch {
     //this will eventually be handled by your error handling middleware
     res.send(err.message);
