@@ -38,17 +38,23 @@ Deploy your Flash briefing skill in minutes using Rocket chat and broadcast mess
 
 ### Deploying Code
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+* Click on the following button,
 
-* **CACHE_TTL** : It is used by Redis to store your data for the given period of time. You may enter your desire frequency in seconds. For ex: If you are going to post news every 24 Hrs enter `86400`. Now your data will be updated every 24 hrs. This step helps admins to save cost as by caching data.
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+  
+* **env Variables:**
 
-* **CHANNEL_NAME** : Enter the name of the broadcasting channel we created earlier.
+  * **CACHE_TTL** : It is used by Redis to store your data for the given period of time. You may enter your desire frequency in seconds. For ex: If you are going to post news every 24 Hrs enter `86400`. Now your data will be updated every 24 hrs. This step helps admins to save cost as by caching data.
+  
+  * **CHANNEL_NAME** : Enter the name of the broadcasting channel we created earlier. Make sure its in lower case with no spaces.
+  
+  * **REDIS_URL** : A Redis instance is automatically created when you deploy this app and its location is stored in this variable.
+  
+  * **SERVER_URL** : Enter your current Rocket.Chat server url here. Ex- https://your.sever.chat
+  
+  * **TITLE_TEXT** : The title of the feed item to display in the Alexa app.
 
-* **REDIS_URL** : A Redis instance is automatically created when you deploy this app and its location is stored in this variable.
-
-* **SERVER_URL** : Enter your current Rocket.Chat server url here.
-
-* **TITLE_TEXT** : The title of the feed item to display in the Alexa app.
+* After App is deployed you can find your **API endpoint URL** here, **Manage App** -> **Settings** -> **Domains and certificates** -> **Domain**. We will using be using this URL in the next step.
 
 ### Creating Flash Briefing Skill
 
