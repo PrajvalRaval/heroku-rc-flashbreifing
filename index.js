@@ -17,7 +17,7 @@ const flashBriefingMessage = async () => {
         updateDate: res.data.messages[0].ts,
         titleText: "RC FLASH BRIEFING",
         mainText: res.data.messages[0].msg,
-        redirectionUrl: "COMING SOON"
+        redirectionUrl: "https://bots.rocket.chat/channel/flashbriefingchannel"
       };
 
     })
