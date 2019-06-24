@@ -33,7 +33,7 @@ app.get('/', async (req, res) => {
     res.send.json(result);
   } catch {
     //this will eventually be handled by your error handling middleware
-    res.send(err.message);
+    res.send("ERROR");
   }
 })
 
