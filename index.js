@@ -11,38 +11,38 @@ client.on('error', (err) => {
 
 app.use(express.json());
 
-var result;
 
-const flashBriefingMessage = async () => {
-  await axios
-    .get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
-    .then((res) => {
+app.get('/', (req, res) => {
 
-      result = JSON.stringify( {
-        uid: res.data.messages[0]._id,
-        updateDate: res.data.messages[0].ts,
-        titleText: "RC FLASH BRIEFING",
-        mainText: res.data.messages[0].msg,
-        redirectionUrl: "https://bots.rocket.chat/channel/flashbriefingchannel"
-      });
+  return client.get(`redisdb:message`, (err, result) => {
 
-    })
-    .catch((err) => {
-      console.log(err.message);
-    });
-};
+    if (result) {
+      const resultJSON = JSON.parse(result);
+      return res.status(200).json(resultJSON);
+    } else {
+      return axios.get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
+        .then(response => {
+
+          const responseJSON = JSON.stringify({
+            uid: response.data.messages[0]._id,
+            updateDate: response.data.messages[0].ts,
+            titleText: "RC FLASH BRIEFING",
+            mainText: response.data.messages[0].msg,
+            redirectionUrl: "https://bots.rocket.chat/channel/flashbriefingchannel"
+          });
+
+          client.setex(`redisdb:message`, 120, responseJSON);
+
+          return res.status(200).json(responseJSON);
+        })
+        .catch(err => {
+          return res.json(err);
+        });
+    }
+  });
+});
 
 
-app.get('/', async (req, res) => {
-  try {
-    await flashBriefingMessage();
-    const resultJSON = JSON.parse(result);
-    return res.status(200).json(resultJSON);
-  } catch {
-    //this will eventually be handled by your error handling middleware
-    res.send("ERROR");
-  }
-})
 
 
 app.listen(PORT, function () {
