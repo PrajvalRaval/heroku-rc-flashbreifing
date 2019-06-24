@@ -4,5 +4,11 @@
   "repository": "https://github.com/PrajvalRaval/heroku-express-test",
   "logo": "https://user-images.githubusercontent.com/41849970/60022912-625b3380-96b2-11e9-84ba-55cbd8617b42.png",
   "keywords": ["node", "express", "static"],
-  "addons": ["heroku-redis:hobby-dev"]
+  "addons": ["heroku-redis:hobby-dev"],
+  "env": {
+    "SERVER_URL": "https://bots.rocket.chat",
+    "CHANNEL_NAME": "flashbriefingchannel",
+    "CACHE_TTL": "3600",
+    "TITLE_TEXT": "RC Flash Brieifing"
+  }
 }
