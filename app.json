@@ -1,0 +1,8 @@
+{
+  "name": "Rocket Chat Flash Briefing",
+  "description": "A simple flash briefing app with redis and express.",
+  "repository": "https://github.com/PrajvalRaval/heroku-express-test",
+  "logo": "https://apltestbucket.s3.amazonaws.com/logo.png",
+  "keywords": ["node", "express", "static"],
+  "addons": ["heroku-redis:hobby-dev"]
+}
