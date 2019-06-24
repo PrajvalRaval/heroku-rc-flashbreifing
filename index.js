@@ -36,7 +36,7 @@ const courses = {
 };
 
 
-app.get("/", function (req, res) {
+app.get("/", function async (req, res) {
   await flashBriefingMessage();
   //when we get an http get request to the root/homepage
   res.send(courses);
