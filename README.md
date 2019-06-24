@@ -76,7 +76,5 @@ Deploy your Flash briefing skill in minutes using Rocket chat and broadcast mess
 
 Need community help in the following:
 
-* externalize it to a nodeJS server, to handle "hundreds of flash briefings across hundreds of RCs" for millions of users - reduce Lamda cost and create  "flash breifing publishing as a service"
-* add caching to significantly reduce lambda cost 
-* add a conversation flow to allow an admin to "publish the briefing" daily using the VUI
-* add support for audio content for more personal flash breifing delivery
+* Add a conversation flow to allow an admin to "publish the briefing" daily using the VUI
+* Add support for audio content for more personal flash breifing delivery
