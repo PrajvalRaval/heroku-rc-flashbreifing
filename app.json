@@ -9,11 +9,17 @@
     "SERVER_URL": {
       "description": "Enter Your Rocket Chat Server URL"
     },
-    "CHANNEL_NAME": "Enter Your Broadcasting Channelname",
-    "CACHE_TTL": "Data Update Frequency In Seconds. (Ex: 1 Hour = 3600 Seconds) ",
-    "TITLE_TEXT": "The title of the feed item to display in the Alexa app.",
-    "COOKIE_SECRET": {
-            "description": "This gets generated",
+    "CHANNEL_NAME": {
+      "description": "Enter Your Broadcasting Channelname"
+    },
+    "CACHE_TTL": {
+      "description": "Data Update Frequency In Seconds. For example: If you want your data to be updated every 5 Minutes, enter 3600 "
+    },
+    "TITLE_TEXT": {
+      "description": "The title of the feed item to display in the Alexa app."
+    }, 
+    "REDIS_URL": {
+            "description": "Redis Database URL",
             "generator": "secret"
     }
   }
