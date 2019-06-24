@@ -4,7 +4,9 @@ const app = express();
 
 app.use(express.json());
 
-const courses = { uid: 1, updateDate: "Algorithms", titleText:"TITLE", mainText:"MAIN", redirectionUrl:"RURL" };
+var date = "2019-06-22T17:34:05.398Z";
+
+const courses = { uid: 1, updateDate: date, titleText:"TITLE", mainText:"MAIN", redirectionUrl:"RURL" };
 
 
 app.get("/", function(req, res) {
