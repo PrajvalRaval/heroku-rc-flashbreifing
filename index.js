@@ -12,13 +12,13 @@ const flashBriefingMessage = async () => {
     .get(`https://bots.rocket.chat/api/v1/channels.anonymousread?roomName=flashbriefingchannel`)
     .then((res) => {
 
-      result = JSON.parse({
+      result = {
         uid: res.data.messages[0]._id,
         updateDate: res.data.messages[0].ts,
         titleText: "RC FLASH BRIEFING",
         mainText: res.data.messages[0].msg,
         redirectionUrl: "COMING SOON"
-      });
+      };
 
     })
     .catch((err) => {
