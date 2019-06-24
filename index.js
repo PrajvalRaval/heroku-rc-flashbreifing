@@ -5,6 +5,9 @@ const app = express();
 
 var client = require('redis').createClient(process.env.REDIS_URL);
 
+client.on('error', (err) => {
+  console.log("Error " + err);
+});
 
 app.use(express.json());
 
